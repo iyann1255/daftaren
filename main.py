@@ -48,12 +48,20 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
 async def daftar(update: Update, context: ContextTypes.DEFAULT_TYPE):
     chat_id = update.effective_chat.id
+
     caption = (
-        "**Pendaftaran Turnamen**\n\n"
-        "1) Scan QRIS di bawah\n"
-        "2) Bayar sesuai biaya pendaftaran\n"
-        "3) Habis itu **kirim bukti foto** ke bot ini\n\n"
-        "_Bukti kamu bakal diterusin ke admin buat verifikasi._"
+        "**PAYMENT TURNAMEN**\n\n"
+        "Silakan lakukan pembayaran via salah satu metode di bawah:\n\n"
+        "🔹 **QRIS**\n"
+        "_(scan QR di atas)_\n\n"
+        "🔹 **DANA**\n"
+        "`08xxxxxxxxxx`\n\n"
+        "🔹 **BANK 1 (BCA)**\n"
+        "`1234567890` a/n `Nama Kamu`\n\n"
+        "🔹 **BANK 2 (BRI)**\n"
+        "`0987654321` a/n `Nama Kamu`\n\n"
+        "Setelah bayar, **kirim bukti foto ke bot ini**.\n"
+        "_Bukti akan diteruskan ke admin untuk verifikasi._"
     )
 
     if os.path.exists(QRIS_IMAGE_PATH):
@@ -65,8 +73,9 @@ async def daftar(update: Update, context: ContextTypes.DEFAULT_TYPE):
         )
     else:
         await update.message.reply_text(
-            "QRIS image belum ada. Upload file qris.png ke server dulu."
+            "QRIS image belum ada. Upload file qris.png ke folder bot."
         )
+
 
 
 async def handle_proof_photo(update: Update, context: ContextTypes.DEFAULT_TYPE):
