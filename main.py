@@ -81,7 +81,8 @@ def is_admin(user_id: int) -> bool:
 
 
 def now_utc() -> str:
-    return datetime.utcnow().isoformat() + "Z"
+    return datetime.now(timezone.utc).isoformat()
+
 
 
 def gen_ticket() -> str:
