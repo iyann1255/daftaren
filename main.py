@@ -2,7 +2,7 @@ import os
 import json
 import csv
 import secrets
-from datetime import datetime
+from datetime import datetime, timezone
 from typing import Dict, Any, Optional
 
 from telegram import (
